@@ -13,11 +13,18 @@ class UserController extends Controller
             'name' => 'required',
             'password' => 'required',
         ]);
-
+        
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->route('/Beranda-Owner');
+            if (Auth::user()->level === 'owner') {
+                return redirect()->route('beranda.owner');
+            } elseif (Auth::user()->level === 'admin') {
+                return redirect()->route('beranda.admin');
+            }
+        }else {
+            return redirect('/login')->with('error', 'Invalid Credentials');
         }
+        
     }
 
     public function logout(){

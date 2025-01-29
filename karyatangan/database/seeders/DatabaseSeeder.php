@@ -16,20 +16,20 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Saya',
-            'password' => 'Admin123',
+            'name' => 'Owner',
+            'password' => 'Karyatangan739',
             'level' => 'owner',
         ]);
 
         User::factory()->create([
-            'name' => 'njay',
-            'password' => 'Saya123',
+            'name' => 'Pegawai1',
+            'password' => 'karyatangan312',
             'level' => 'admin',
         ]);
         
         User::factory()->create([
-            'name' => 'ntahlah',
-            'password' => 'Saya123',
+            'name' => 'Pegawai2',
+            'password' => 'karyatangan645',
             'level' => 'admin',
         ]);
     }
